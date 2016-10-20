@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import hapi from 'hapi';
 import { apolloHapi, graphiqlHapi } from 'apollo-server';
 
-import { executableSchema } from './data/schema';
+import { executableSchema } from './data';
 
 
 const server = new hapi.Server();

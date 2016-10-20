@@ -1,9 +1,4 @@
-import { makeExecutableSchema } from 'graphql-tools';
-
-import { resolveFunctions as resolvers } from './resolvers';
-
-
-const schema = `
+export const schema = `
 type Author {
   id: Int! # the ! means that every author object _must_ have an id
   firstName: String
@@ -27,9 +22,3 @@ type Mutation {
   ): Post
 }
 `;
-
-
-export const executableSchema = makeExecutableSchema({
-  typeDefs: schema,
-  resolvers,
-});

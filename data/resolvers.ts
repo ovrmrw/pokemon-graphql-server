@@ -14,7 +14,7 @@ const posts = [
 ];
 
 
-export const resolveFunctions = {
+export const resolvers = {
   Query: {
     posts() {
       return posts;
