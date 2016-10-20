@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "sourceMap": false,
+    "allowSyntheticDefaultImports": true,
+    "outDir": ".tscOutDir",
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "lib": [
+      "es2017"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
