@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import hapi from 'hapi';
 import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
 
-import { executableSchema as dataSchema } from './data';
+// import { executableSchema as dataSchema } from './data';
 import { executableSchema as pokemonSchema } from './pokemon';
 
 
