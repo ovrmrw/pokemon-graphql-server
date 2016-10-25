@@ -33,6 +33,6 @@ Input a query in a textarea on the screen as below.
 }
 ``` 
 
-In this case, the id of "bulbasaur" is 1 therefore sending request is once not twice.
-Moreover, if you click Run button any number of times, DataLoader sends request only once because of its caching feature.
+In this case, the id of "bulbasaur" is 1, therefore API request is sent once not twice.
+Moreover, even if you click Run button any number of times, DataLoader sends API request only first once because of its caching feature.
 
