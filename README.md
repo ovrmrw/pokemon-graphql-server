@@ -20,21 +20,19 @@ Input a query in a textarea on the screen as below.
 
 ```
 {
-  posts {
+  pokemonByName(name:"bulbasaur"){
     id
-    title
-    votes
-    author {
-      id
-      firstName
-      lastName
-      posts {
-        id
-        title
-      }
-    }
+    name
+    weight
+  }
+  pokemonById(id:1){
+    id
+    name
+    weight
   }
 }
 ``` 
 
-Then click "Execute Query" button, now you can see the result on the right hand side on the screen.
+In this case, the id of "bulbasaur" is 1 therefore sending request is once not twice.
+Moreover, if you click Run button any number of times, DataLoader sends request only once because of its caching feature.
+

@@ -2,7 +2,8 @@ import 'babel-polyfill';
 import hapi from 'hapi';
 import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
 
-import { executableSchema } from './data';
+import { executableSchema as dataSchema } from './data';
+import { executableSchema as pokemonSchema } from './pokemon';
 
 
 const server = new hapi.Server();
@@ -21,7 +22,7 @@ server.register({
   options: {
     path: '/graphql',
     graphqlOptions: {
-      schema: executableSchema,
+      schema: pokemonSchema,
     },
     route: {
       cors: true

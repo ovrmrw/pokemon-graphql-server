@@ -40,6 +40,7 @@
     "graphql-tools": "^0.7.2",
     "hapi": "^15.1.1",
     "lodash": "^4.16.1",
+    "pokedex-promise-v2": "^3.0.1",
     "subscriptions-transport-ws": "^0.2.6"
   }
 }
