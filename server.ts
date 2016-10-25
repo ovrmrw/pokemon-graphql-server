@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 import hapi from 'hapi';
-import { apolloHapi, graphiqlHapi } from 'apollo-server';
+import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
 
 import { executableSchema } from './data';
 
@@ -17,12 +17,11 @@ server.connection({
 
 
 server.register({
-  register: apolloHapi,
+  register: graphqlHapi,
   options: {
     path: '/graphql',
-    apolloOptions: {
+    graphqlOptions: {
       schema: executableSchema,
-      context: {}
     },
     route: {
       cors: true

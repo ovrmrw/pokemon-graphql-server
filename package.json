@@ -19,7 +19,6 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/graphql": "^0.7.1",
     "@types/hapi": "^13.0.36",
     "@types/lodash": "^4.14.36",
     "@types/node": "^6.0.40",
@@ -33,10 +32,10 @@
     "typescript": "^2.0.3"
   },
   "dependencies": {
-    "apollo-server": "^0.3.2",
     "babel-polyfill": "^6.13.0",
     "dataloader": "^1.2.0",
     "graphql": "^0.7.2",
+    "graphql-server-hapi": "^0.4.3",
     "graphql-subscriptions": "^0.2.0",
     "graphql-tools": "^0.7.2",
     "hapi": "^15.1.1",
