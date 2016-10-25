@@ -6,7 +6,7 @@ const P = new Pokedex();
 import { Pokemon } from './schema';
 
 
-const pokemonLoader = new DataLoader((args: Array<number | string>) => new Promise((resolve, reject) => {
+const pokemonLoader: DataLoader<Pokemon> = new DataLoader((args: (number | string)[]) => new Promise((resolve, reject) => {
   console.log('args:', args);
   const promises: Promise<any>[] = args.map(arg => P.getPokemonByName(arg));
   Promise.all(promises)
@@ -31,3 +31,8 @@ export const resolvers = {
     },
   },
 };
+
+
+interface DataLoader<T> {
+  load(arg: any): Promise<T>;
+}
