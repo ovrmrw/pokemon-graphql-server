@@ -1,3 +1,4 @@
+import hapi from 'hapi';
 import lodash from 'lodash';
 const DataLoader = require('dataloader');
 const Pokedex = require('pokedex-promise-v2');
@@ -20,14 +21,14 @@ const pokemonLoader: DataLoader<Pokemon> = new DataLoader((args: (number | strin
 
 export const resolvers = {
   Query: {
-    pokemonById(root: any, { id }: { id: number }): Pokemon {
-      console.log(root, id);
-      return pokemonLoader.load(id);
+    pokemonById(root: any, args: { id: number }, context: hapi.Request): Pokemon {
+      console.log({ root, args, context: context.auth });
+      return pokemonLoader.load(args.id);
     },
 
-    pokemonByName(root: any, { name }: { name: string }): Pokemon {
-      console.log(root, name);
-      return pokemonLoader.load(name);
+    pokemonByName(root: any, args: { name: string }, context: hapi.Request): Pokemon {
+      console.log({ root, args, context: context.auth });
+      return pokemonLoader.load(args.name);
     },
   },
 };

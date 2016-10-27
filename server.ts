@@ -21,8 +21,14 @@ server.register({
   register: graphqlHapi,
   options: {
     path: '/graphql',
-    graphqlOptions: {
-      schema: pokemonSchema,
+    // graphqlOptions: {
+    //   schema: pokemonSchema,
+    // },
+    graphqlOptions: (request) => {
+      return {
+        schema: pokemonSchema,
+        context: request,
+      };
     },
     route: {
       cors: true

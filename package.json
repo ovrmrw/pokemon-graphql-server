@@ -35,6 +35,7 @@
     "babel-polyfill": "^6.13.0",
     "dataloader": "^1.2.0",
     "graphql": "^0.7.2",
+    "graphql-server-express": "^0.4.3",
     "graphql-server-hapi": "^0.4.3",
     "graphql-subscriptions": "^0.2.0",
     "graphql-tools": "^0.7.2",

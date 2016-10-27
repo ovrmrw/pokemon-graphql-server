@@ -33,6 +33,5 @@ Input a query in a textarea on the screen as below.
 }
 ``` 
 
-In this case, the id of "bulbasaur" is 1, therefore API request is sent once not twice.
-Moreover, even if you click Run button any number of times, DataLoader sends API request only first once because of its caching feature.
-
+In this case, fetching pokemon by name "bulbasaur" and by id 1 are cached when they are fetched once.
+Even if you click Run button any number of times, DataLoader will send API request only once for the first time because of its caching feature.
