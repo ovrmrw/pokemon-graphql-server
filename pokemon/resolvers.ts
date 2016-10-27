@@ -1,10 +1,12 @@
 import hapi from 'hapi';
 import lodash from 'lodash';
+import firebase from 'firebase';
+import { Observable } from 'rxjs/Rx';
 const DataLoader = require('dataloader');
 const Pokedex = require('pokedex-promise-v2');
 const P = new Pokedex();
 
-import { Pokemon } from './schema';
+import { Pokemon, First } from './schema';
 
 
 const pokemonLoader: DataLoader<Pokemon> = new DataLoader((args: (number | string)[]) => new Promise((resolve, reject) => {
@@ -21,14 +23,23 @@ const pokemonLoader: DataLoader<Pokemon> = new DataLoader((args: (number | strin
 
 export const resolvers = {
   Query: {
-    pokemonById(root: any, args: { id: number }, context: hapi.Request): Pokemon {
-      console.log({ root, args, context: context.auth });
+    pokemonById(root: any, args: { id: number }, context: Context): Promise<Pokemon> {
+      console.log({ root, args, context: context.firebase.auth().currentUser });
       return pokemonLoader.load(args.id);
     },
 
-    pokemonByName(root: any, args: { name: string }, context: hapi.Request): Pokemon {
+    pokemonByName(root: any, args: { name: string }, context: Context): Promise<Pokemon> {
       console.log({ root, args, context: context.auth });
       return pokemonLoader.load(args.name);
+    },
+
+    first(root: any, args: any, context: Context): Promise<First> {
+      console.log({ root, args, context: context.firebase.auth().currentUser });
+      const promise = firebase.database().ref('first').once('value') as Promise<any>;
+      return Observable.from(promise)
+        .map<First>(snapshot => snapshot.val())
+        .timeoutWith(1000 * 10, Observable.empty())
+        .toPromise();
     },
   },
 };
@@ -37,3 +48,5 @@ export const resolvers = {
 interface DataLoader<T> {
   load(arg: any): Promise<T>;
 }
+
+type Context = hapi.Request & { firebase: firebase.app.App }; 

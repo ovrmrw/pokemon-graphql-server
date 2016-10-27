@@ -34,6 +34,7 @@
   "dependencies": {
     "babel-polyfill": "^6.13.0",
     "dataloader": "^1.2.0",
+    "firebase": "^3.5.2",
     "graphql": "^0.7.2",
     "graphql-server-express": "^0.4.3",
     "graphql-server-hapi": "^0.4.3",
@@ -42,6 +43,7 @@
     "hapi": "^15.1.1",
     "lodash": "^4.16.1",
     "pokedex-promise-v2": "^3.0.1",
+    "rxjs": "^5.0.0-beta.12",
     "subscriptions-transport-ws": "^0.2.6"
   }
 }

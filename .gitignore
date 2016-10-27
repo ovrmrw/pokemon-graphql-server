@@ -40,3 +40,4 @@ typings
 .tscOutDir
 .dest*
 dest
+secret.json

@@ -4,6 +4,7 @@ import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
 
 // import { executableSchema as dataSchema } from './data';
 import { executableSchema as pokemonSchema } from './pokemon';
+import { firebaseApp } from './firebase';
 
 
 const server = new hapi.Server();
@@ -24,7 +25,8 @@ server.register({
     // graphqlOptions: {
     //   schema: pokemonSchema,
     // },
-    graphqlOptions: (request) => {
+    graphqlOptions: (request: { firebase: typeof firebaseApp }) => {
+      request.firebase = firebaseApp;
       return {
         schema: pokemonSchema,
         context: request,

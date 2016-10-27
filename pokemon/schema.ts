@@ -8,9 +8,16 @@ type Pokemon {
   base_experience: Int!
 }
 
+type First {
+  test: Int
+  test2: Int
+  test3: Int
+}
+
 type Query {
   pokemonById(id: Int): Pokemon
   pokemonByName(name: String): Pokemon
+  first: First 
 }
 
 `;
@@ -71,4 +78,10 @@ export interface GameIndex {
 export interface UrlAndName {
   url: string;
   name: string;
+}
+
+export interface First {
+  test: number
+  test2: number
+  test3: number
 }
